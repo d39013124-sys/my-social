@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>روابط سريعة - تعارف</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .shortcuts-container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            padding: 40px;
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .shortcuts-container h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .shortcuts-container p {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+
+        .shortcuts-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .shortcut-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            min-height: 120px;
+        }
+
+        .shortcut-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        .shortcut-btn .icon {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .shortcut-btn .label {
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .shortcut-btn-full {
+            grid-column: 1 / -1;
+            min-height: 60px;
+            flex-direction: row;
+            gap: 10px;
+        }
+
+        .shortcut-btn-full .icon {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .qr-code {
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 2px solid #eee;
+        }
+
+        .qr-code h3 {
+            color: #333;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        .qr-container {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            display: inline-block;
+            border: 2px solid #667eea;
+        }
+
+        .qr-container img {
+            width: 200px;
+            height: 200px;
+        }
+
+        .info-box {
+            background: #f0f4ff;
+            border-left: 4px solid #667eea;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 20px;
+            text-align: right;
+            color: #333;
+            font-size: 13px;
+        }
+
+        .info-box strong {
+            display: block;
+            margin-bottom: 8px;
+            color: #667eea;
+        }
+    </style>
+</head>
+<body>
+    <div class="shortcuts-container">
+        <h1>🚀 روابط سريعة</h1>
+        <p>انقر على أحد الروابط أدناه للوصول السريع</p>
+
+        <div class="shortcuts-grid">
+            <a href="index.html" class="shortcut-btn">
+                <div class="icon">🏠</div>
+                <div class="label">الصفحة الرئيسية</div>
+            </a>
+
+            <a href="dashboard.html" class="shortcut-btn">
+                <div class="icon">📊</div>
+                <div class="label">لوحة التحكم</div>
+            </a>
+
+            <a href="index.html#tab-posts" class="shortcut-btn">
+                <div class="icon">📝</div>
+                <div class="label">المنشورات</div>
+            </a>
+
+            <a href="index.html#tab-messages" class="shortcut-btn">
+                <div class="icon">💬</div>
+                <div class="label">الرسائل</div>
+            </a>
+
+            <a href="index.html#tab-friends" class="shortcut-btn">
+                <div class="icon">👥</div>
+                <div class="label">الأصدقاء</div>
+            </a>
+
+            <a href="javascript:void(0)" class="shortcut-btn" onclick="alert('قم بتسجيل الدخول أولاً');">
+                <div class="icon">🔔</div>
+                <div class="label">الإشعارات</div>
+            </a>
+
+            <a href="javascript:void(0)" onclick="toggleTheme()" class="shortcut-btn-full">
+                <div class="icon" id="theme-icon">🌙</div>
+                <div class="label">تبديل المظهر الداكن</div>
+            </a>
+        </div>
+
+        <div class="qr-code">
+            <h3>📱 مسح رمز QR</h3>
+            <div class="qr-container">
+                <!-- QR Code generated for the URL -->
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://yoursite.com" alt="QR Code">
+            </div>
+            <p style="color: #999; margin-top: 10px; font-size: 12px;">امسح الكود للدخول المباشر</p>
+        </div>
+
+        <div class="info-box">
+            <strong>💡 نصيحة:</strong>
+            <span>حفظ هذه الصفحة كـ Bookmark في متصفحك للوصول السريع في المستقبل</span>
+        </div>
+    </div>
+
+    <script>
+        function toggleTheme() {
+            const isDarkMode = localStorage.getItem('darkMode') === 'true';
+            localStorage.setItem('darkMode', !isDarkMode);
+            alert(isDarkMode ? '✓ تم تف عيل المظهر الفاتح' : '✓ تم تفعيل المظهر الداكن');
+        }
+
+        // Auto-generate QR code for current URL
+        const currentUrl = window.location.href.replace('shortcut.html', 'index.html');
+        const qrImage = document.querySelector('.qr-container img');
+        qrImage.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(currentUrl)}`;
+    </script>
+</body>
+</html>

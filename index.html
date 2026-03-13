@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ta3arf</title>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+    <div id="auth-container" style="display: flex;">
+        <!-- Login Form -->
+        <div id="login-form" style="flex: 1; display: flex; align-items: center; justify-content: center; min-height: 100vh; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+            <div style="background: white; padding: 40px; border-radius: 10px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); width: 100%; max-width: 400px;">
+                <h2 style="text-align: center; color: #333; margin-bottom: 30px;">تسجيل الدخول</h2>
+                <div style="margin-bottom: 15px;">
+                    <input type="email" id="login-email" placeholder="البريد الإلكتروني" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-size: 14px;" />
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <input type="password" id="login-password" placeholder="كلمة المرور" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-size: 14px;" />
+                </div>
+                <button id="login-btn" style="width: 100%; padding: 12px; background: #667eea; color: white; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; margin-bottom: 15px;">دخول</button>
+                <button id="quick-login-btn" style="width: 100%; padding: 12px; background: #28a745; color: white; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; margin-bottom: 15px;">دخول سريع</button>
+                <div style="text-align: center;">
+                    <a href="#" id="forgot-password-link" style="color: #667eea; text-decoration: none; font-size: 14px; margin-right: 10px;">نسيت كلمة المرور؟</a>
+                    <a href="#" id="signup-link" style="color: #667eea; text-decoration: none; font-size: 14px;">إنشاء حساب</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Signup Form -->
+        <div id="signup-form" style="flex: 1; display: none; align-items: center; justify-content: center; min-height: 100vh; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+            <div style="background: white; padding: 40px; border-radius: 10px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); width: 100%; max-width: 400px;">
+                <h2 style="text-align: center; color: #333; margin-bottom: 30px;">إنشاء حساب جديد</h2>
+                <div style="margin-bottom: 15px;">
+                    <input type="text" id="signup-name" placeholder="الاسم الكامل" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-size: 14px;" />
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <input type="email" id="signup-email" placeholder="البريد الإلكتروني" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-size: 14px;" />
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <input type="password" id="signup-password" placeholder="كلمة المرور" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-size: 14px;" />
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <input type="password" id="signup-confirm-password" placeholder="تأكيد كلمة المرور" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-size: 14px;" />
+                </div>
+                <button id="signup-btn" style="width: 100%; padding: 12px; background: #667eea; color: white; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; margin-bottom: 15px;">إنشاء حساب</button>
+                <div style="text-align: center;">
+                    <a href="#" id="back-to-login" style="color: #667eea; text-decoration: none; font-size: 14px;">العودة للدخول</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Forgot Password Form -->
+        <div id="forgot-form" style="flex: 1; display: none; align-items: center; justify-content: center; min-height: 100vh; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+            <div style="background: white; padding: 40px; border-radius: 10px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); width: 100%; max-width: 400px;">
+                <h2 style="text-align: center; color: #333; margin-bottom: 30px;">استعادة كلمة المرور</h2>
+                <p style="text-align: center; color: #666; margin-bottom: 20px; font-size: 14px;">أدخل بريدك الإلكتروني وسنرسل لك رابط استعادة</p>
+                <div style="margin-bottom: 15px;">
+                    <input type="email" id="forgot-email" placeholder="البريد الإلكتروني" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-size: 14px;" />
+                </div>
+                <button id="reset-btn" style="width: 100%; padding: 12px; background: #667eea; color: white; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; margin-bottom: 15px;">إرسال رابط الاستعادة</button>
+                <div style="text-align: center;">
+                    <a href="#" id="back-to-login-forgot" style="color: #667eea; text-decoration: none; font-size: 14px;">العودة للدخول</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="main-container" style="display: none;">
+    <header>
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <h1 data-i18n="title">تعارف</h1>
+            <div style="display: flex; gap: 10px; align-items: center;">
+                <div id="user-info" style="font-weight: bold; font-size: 14px; color: #333;"></div>
+                <div style="position: relative;">
+                    <button id="notifications-btn" style="padding: 8px 12px; background: #ddd; border: none; border-radius: 4px; cursor: pointer; font-size: 18px;">🔔</button>
+                    <span id="notification-badge" style="display: none; position: absolute; top: -5px; right: -5px; background: #dc3545; color: white; border-radius: 50%; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: bold;">0</span>
+                </div>
+                <select id="language-selector" style="padding: 8px 12px; border-radius: 4px; border: none; cursor: pointer;">
+                    <option value="ar">العربية</option>
+                    <option value="en">English</option>
+                    <option value="kab">Tamazight</option>
+                </select>
+                <button id="theme-toggle" style="padding: 8px 12px; cursor: pointer; background: #ddd; border: none; border-radius: 4px;">🌙</button>
+            </div>
+        </div>
+    </header>
+
+    <div id="notifications-panel" class="notifications-panel">
+        <div class="notifications-header">
+            <h3 data-i18n="notifications">الإشعارات</h3>
+            <button id="close-notifications" style="background: none; border: none; font-size: 20px; cursor: pointer;">✕</button>
+        </div>
+        <div id="notifications-list" class="notifications-list">
+            <!-- الإشعارات ستظهر هنا -->
+        </div>
+    </div>
+
+    <div id="notification-toast"></div>
+
+    <main>
+        <nav style="display: flex; gap: 10px; margin-bottom: 20px;">
+            <button id="tab-posts" class="tab-btn active" data-i18n="posts">المنشورات</button>
+            <button id="tab-messages" class="tab-btn" data-i18n="messages">الرسائل <span id="messages-badge" style="display: none; background: #dc3545; color: white; border-radius: 50%; width: 20px; height: 20px; display: inline-flex; align-items: center; justify-content: center; font-size: 10px; margin-right: 5px;">0</span></button>
+            <button id="tab-friends" class="tab-btn" data-i18n="friends">الأصدقاء <span id="friends-badge" style="display: none; background: #dc3545; color: white; border-radius: 50%; width: 20px; height: 20px; display: inline-flex; align-items: center; justify-content: center; font-size: 10px; margin-right: 5px;">0</span></button>
+        </nav>
+
+        <section id="posts-section">
+            <section id="new-post">
+                <textarea id="post-content" placeholder="اكتب منشورك هنا..." data-i18n="postPlaceholder" data-attr="placeholder"></textarea>
+                <div id="post-preview" style="margin: 10px 0; display: none;"></div>
+                <div style="display: flex; gap: 10px; margin-top: 10px;">
+                    <label style="cursor: pointer; padding: 8px 15px; background: #6c757d; color: white; border-radius: 4px; font-size: 18px;" title="رفع صورة">📷
+                        <input type="file" id="post-image" accept="image/*" style="display: none;" />
+                    </label>
+                    <label style="cursor: pointer; padding: 8px 15px; background: #6c757d; color: white; border-radius: 4px; font-size: 18px;" title="رفع فيديو">🎞️
+                        <input type="file" id="post-video" accept="video/*" style="display: none;" />
+                    </label>
+                    <button id="submit-post" data-i18n="publish" style="flex: 1;">نشر</button>
+                </div>
+            </section>
+
+            <section id="feed">
+                <!-- المنشورات ستظهر هنا -->
+                <div class="post">مرحبا، هذه رسالة تجريبية</div>
+            </section>
+        </section>
+
+        <section id="messages-section" style="display: none;">
+            <div style="display: flex; gap: 10px; margin-bottom: 15px;">
+                <div style="flex: 0 0 250px;">
+                    <h3 data-i18n="conversations" style="margin-bottom: 10px;">المحادثات</h3>
+                    <div id="conversations-list" style="border: 1px solid #ccc; border-radius: 4px; max-height: 400px; overflow-y: auto;">
+                        <!-- قائمة المحادثات ستظهر هنا -->
+                    </div>
+                </div>
+                <div style="flex: 1;">
+                    <div id="current-chat" style="display: flex; flex-direction: column; height: 100%;">
+                        <div id="chat-header" style="padding: 10px; border-bottom: 1px solid #ccc; margin-bottom: 10px; font-weight: bold;">اختر محادثة</div>
+                        <div id="messages-container" style="flex: 1; height: 350px; overflow-y: auto; border: 1px solid #ccc; margin-bottom: 15px; padding: 10px; border-radius: 4px;">
+                            <!-- الرسائل ستظهر هنا -->
+                        </div>
+                        <div style="display: flex; gap: 10px;">
+                            <label style="cursor: pointer; padding: 5px 10px; background: #6c757d; color: white; border-radius: 3px; font-size: 16px;" title="رفع صورة">📷
+                                <input type="file" id="message-image" accept="image/*" style="display: none;" />
+                            </label>
+                            <label style="cursor: pointer; padding: 5px 10px; background: #6c757d; color: white; border-radius: 3px; font-size: 16px;" title="رفع فيديو">🎞️
+                                <input type="file" id="message-video" accept="video/*" style="display: none;" />
+                            </label>
+                            <textarea id="message-input" placeholder="اكتب رسالتك..." data-i18n="messagePlaceholder" data-attr="placeholder" style="flex: 1; height: 60px; padding: 10px; border: 1px solid #ccc; border-radius: 4px; background: var(--post-bg); color: var(--text-color);"></textarea>
+                            <button id="send-message" style="padding: 10px 20px; background: #28a745; color: white; border: none; border-radius: 4px; cursor: pointer;" data-i18n="send">إرسال</button>
+                        </div>
+                        <div id="message-preview" style="margin-top: 10px; display: none;"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="friends-section" style="display: none;">
+            <div style="display: flex; gap: 15px;">
+                <div style="flex: 1;">
+                    <h3 data-i18n="friendRequests">طلبات الصداقة</h3>
+                    <div id="friend-requests-list" style="margin-bottom: 20px;">
+                        <!-- طلبات الصداقة ستظهر هنا -->
+                    </div>
+                </div>
+                <div style="flex: 1;">
+                    <h3 data-i18n="myFriends">أصدقائي</h3>
+                    <div id="friends-list" style="margin-bottom: 20px;">
+                        <!-- قائمة الأصدقاء ستظهر هنا -->
+                    </div>
+                </div>
+            </div>
+            <div style="margin-top: 20px;">
+                <h3 data-i18n="users">مستخدمون</h3>
+                <div id="users-list">
+                    <!-- قائمة المستخدمين ستظهر هنا -->
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="js/translations.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/notifications.js"></script>
+    <script src="js/friends.js"></script>
+    <script src="js/directMessages.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
